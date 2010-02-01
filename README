@@ -13,6 +13,10 @@ peuler perl 1
 peuler php 5
 
 Supported Languages:
+c
+csharp
+java
 perl
 php
-
+python
+ruby

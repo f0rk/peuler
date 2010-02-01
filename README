@@ -1,0 +1,18 @@
+peuler - The Project Euler [http://projecteuler.net/] solution file stub generator
+
+Installation:
+sudo cp peuler /usr/bin/peuler
+sudo chmod +x /usr/bin/peuler
+
+Usage:
+peuler [lang] [problem_number]
+
+Examples:
+
+peuler perl 1
+peuler php 5
+
+Supported Languages:
+perl
+php
+

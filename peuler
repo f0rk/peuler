@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use Cwd 'abs_path';
+
+if($#ARGV != 1) {
+    die "Wrong number of arguments\n";
+}
+
+my $lang = $ARGV[0];
+my $num  = $ARGV[1];
+
+my %lang_ext = (
+    'php' => '.php',
+    'perl' => '.pl',
+);
+
+if(!defined($lang_ext{$lang})) {
+    die "Unknown language\n";
+}
+
+if($num !~ m/^\d+$/) {
+    die "$num is not a number\n";
+}
+
+my $file = 'problem' . $num . $lang_ext{$lang};
+
+if(-e abs_path($file)) {
+    die "file for that problem already exists\n";
+}
+
+my %lang_sub = (
+    'php' => \&php_stub,
+    'perl' => \&perl_stub,
+);
+
+open(my $fh, '>', $file) or die "could not open file $file for writing\n";
+
+print $fh $lang_sub{$lang}($num);
+
+print "created stub problem", $num, $lang_ext{$lang}, "\n";
+
+close($fh);
+
+sub php_stub {
+    my ($num) = @_;
+    
+    return "<?php\n//solution: \necho eulerProblem".$num."() . \"\\n\";\n\nfunction eulerProblem".$num."() {\n    \n}\n\n?>";
+}
+
+sub perl_stub {
+    my ($num) = @_;
+    
+    return "#!/usr/bin/perl\n#solution: \nuse strict;\nuse warnings;\n\nprint euler_problem_".$num."(), \"\\n\";\n\nsub euler_problem_".$num." {\n    \n}\n";
+}

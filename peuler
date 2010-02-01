@@ -14,6 +14,7 @@ my $num  = $ARGV[1];
 
 my %lang_ext = (
     'c' => '.c',
+    'cpp' => '.cpp',
     'csharp' => '.cs',
     'java' => '.java',
     'lua' => '.lua',
@@ -25,6 +26,7 @@ my %lang_ext = (
 
 my %lang_name = (
     'c' => 'problem',
+    'cpp' => 'problem',
     'csharp' => 'Problem',
     'java' => 'Problem',
     'lua' => 'problem',
@@ -50,6 +52,7 @@ if(-e abs_path($file)) {
 
 my %lang_sub = (
     'c' => \&c_stub,
+    'cpp' => \&cpp_stub,
     'csharp' => \&csharp_stub,
     'java' => \&java_stub,
     'lua' => \&lua_stub,
@@ -71,6 +74,12 @@ sub c_stub {
     my ($num) = @_;
     
     return "#include <stdio.h>\n//solution: \n\nint euler_problem_".$num."() {\n    \n}\n\nint main() {\n    printf(\"%d\\n\", euler_problem_".$num."());\n    return 0;\n}\n\n";
+}
+
+sub cpp_stub {
+    my ($num) = @_;
+    
+    return "#include <iostream>\n//solution: \n\nint eulerProblem".$num."() {\n    \n}\n\nint main() {\n    cout << eulerProblem".$num."() << endl;\n    return 0;\n}\n";
 }
 
 sub csharp_stub {

@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-#version 0.30
+#version 0.35
 
 use strict;
 use warnings;
@@ -16,6 +16,7 @@ my %lang_ext = (
     'c' => '.c',
     'csharp' => '.cs',
     'java' => '.java',
+    'lua' => '.lua',
     'perl' => '.pl',
     'php' => '.php',
     'python' => '.py',
@@ -26,6 +27,7 @@ my %lang_name = (
     'c' => 'problem',
     'csharp' => 'Problem',
     'java' => 'Problem',
+    'lua' => 'problem',
     'perl' => 'problem',
     'php' => 'problem',
     'python' => 'problem',
@@ -50,6 +52,7 @@ my %lang_sub = (
     'c' => \&c_stub,
     'csharp' => \&csharp_stub,
     'java' => \&java_stub,
+    'lua' => \&lua_stub,
     'perl' => \&perl_stub,
     'php' => \&php_stub,
     'python' => \&python_stub,
@@ -80,6 +83,12 @@ sub java_stub {
     my ($num) = @_;
     
     return "//solution: \npublic class Problem".$num." {\n\n    public static int eulerProblem".$num."() {\n        \n    }\n\n    public static void main(String args[]) {\n        System.out.println(eulerProblem".$num."());\n    }\n\n}\n";
+}
+
+sub lua_stub {
+    my ($num) = @_;
+    
+    return "--solution: \n\nfunction euler_problem_".$num."()\n    return\nend\n\nprint(euler_problem_".$num."())\n";
 }
 
 sub perl_stub {

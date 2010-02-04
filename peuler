@@ -91,7 +91,7 @@ sub csharp_stub {
 sub java_stub {
     my ($num) = @_;
     
-    return "//solution: \npublic class Problem".$num." {\n\n    public static int eulerProblem".$num."() {\n        \n    }\n\n    public static void main(String args[]) {\n        System.out.println(eulerProblem".$num."());\n    }\n\n}\n";
+    return "//solution: \npublic class Problem".$num." {\n\n    public int eulerProblem".$num."() {\n        \n    }\n\n    public static void main(String args[]) {\n        System.out.println((new Problem".$num."()).eulerProblem".$num."());\n    }\n\n}\n";
 }
 
 sub lua_stub {

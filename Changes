@@ -1,3 +1,7 @@
+0.42 Sun, 07 February 2010
+
+Added 'using namespace std;' to all C++ stubs
+
 0.41 Sun, 07 February 2010
 
 Support for JavaScript added

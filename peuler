@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-#version 0.41
+#version 0.42
 
 use strict;
 use warnings;
@@ -82,7 +82,7 @@ sub c_stub {
 sub cpp_stub {
     my ($num) = @_;
     
-    return "#include <iostream>\n//solution: \n\nint eulerProblem".$num."() {\n    \n}\n\nint main() {\n    cout << eulerProblem".$num."() << endl;\n    return 0;\n}\n";
+    return "#include <iostream>\nusing namespace std;\n//solution: \n\nint eulerProblem".$num."() {\n    \n}\n\nint main() {\n    cout << eulerProblem".$num."() << endl;\n    return 0;\n}\n";
 }
 
 sub csharp_stub {

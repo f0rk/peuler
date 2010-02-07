@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-#version 0.40
+#version 0.41
 
 use strict;
 use warnings;
@@ -100,7 +100,7 @@ sub java_stub {
 sub js_stub {
     my ($num) = @_;
     
-    return "//solution: \nprint(eulerProblem".$num."());\n\nfunction eulerProblem".$num."() {\n   \n}\n";
+    return "//solution: \nprint(eulerProblem".$num."());\n\nfunction eulerProblem".$num."() {\n    \n}\n";
 }
 
 sub lua_stub {

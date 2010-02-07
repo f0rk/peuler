@@ -17,6 +17,7 @@ my %lang_ext = (
     'cpp' => '.cpp',
     'csharp' => '.cs',
     'java' => '.java',
+    'js' => '.js',
     'lua' => '.lua',
     'perl' => '.pl',
     'php' => '.php',
@@ -29,6 +30,7 @@ my %lang_name = (
     'cpp' => 'problem',
     'csharp' => 'Problem',
     'java' => 'Problem',
+    'js' => 'problem',
     'lua' => 'problem',
     'perl' => 'problem',
     'php' => 'problem',
@@ -55,6 +57,7 @@ my %lang_sub = (
     'cpp' => \&cpp_stub,
     'csharp' => \&csharp_stub,
     'java' => \&java_stub,
+    'js' => \&js_stub,
     'lua' => \&lua_stub,
     'perl' => \&perl_stub,
     'php' => \&php_stub,
@@ -92,6 +95,12 @@ sub java_stub {
     my ($num) = @_;
     
     return "//solution: \npublic class Problem".$num." {\n\n    public int eulerProblem".$num."() {\n        \n    }\n\n    public static void main(String args[]) {\n        System.out.println((new Problem".$num."()).eulerProblem".$num."());\n    }\n\n}\n";
+}
+
+sub js_stub {
+    my ($num) = @_;
+    
+    return "//solution: \nprint(eulerProblem".$num."());\n\nfunction eulerProblem".$num."() {\n   \n}\n";
 }
 
 sub lua_stub {

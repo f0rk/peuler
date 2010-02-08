@@ -88,7 +88,7 @@ sub cpp_stub {
 sub csharp_stub {
     my ($num) = @_;
     
-    return "//solution: \npublic class Problem".$num." {\n\n    public static int EulerProblem".$num."() {\n    \n    }\n\n    public static void Main() {\n        System.Console.WriteLine(EulerProblem".$num."());\n    }\n\n}\n";
+    return "//solution: \npublic class Problem".$num." {\n\n    public int EulerProblem".$num."() {\n    \n    }\n\n    public static void Main() {\n        System.Console.WriteLine((new Problem".$num."()).EulerProblem".$num."());\n    }\n\n}\n";
 }
 
 sub java_stub {

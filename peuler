@@ -85,7 +85,7 @@ sub c_stub {
 sub cl_stub {
     my ($num) = @_;
 
-    return "; solution: \n\n(defun problem".$num." ()\n())\n\n(problem1)\n";
+    return "; solution: \n\n(defun problem".$num." ()\n    ())\n\n(print (problem".$num."))\n";
 }
 
 sub cpp_stub {

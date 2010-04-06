@@ -14,6 +14,7 @@ my $num  = $ARGV[1];
 
 my %lang_ext = (
     'c' => '.c',
+    'cl' => '.lisp',
     'cpp' => '.cpp',
     'csharp' => '.cs',
     'java' => '.java',
@@ -27,6 +28,7 @@ my %lang_ext = (
 
 my %lang_name = (
     'c' => 'problem',
+    'cl' => 'problem',
     'cpp' => 'problem',
     'csharp' => 'Problem',
     'java' => 'Problem',
@@ -55,6 +57,7 @@ if(-e abs_path($file)) {
 my %lang_sub = (
     'c' => \&c_stub,
     'cpp' => \&cpp_stub,
+    'cl' => \&cl_stub,
     'csharp' => \&csharp_stub,
     'java' => \&java_stub,
     'js' => \&js_stub,
@@ -77,6 +80,12 @@ sub c_stub {
     my ($num) = @_;
     
     return "#include <stdio.h>\n//solution: \n\nint euler_problem_".$num."() {\n    \n}\n\nint main() {\n    printf(\"%d\\n\", euler_problem_".$num."());\n    return 0;\n}\n\n";
+}
+
+sub cl_stub {
+    my ($num) = @_;
+
+    return "; solution: \n\n(defun problem".$num." ()\n())\n\n(problem1)\n";
 }
 
 sub cpp_stub {
